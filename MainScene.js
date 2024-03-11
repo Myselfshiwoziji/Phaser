@@ -52,13 +52,17 @@ export default class MainScene extends Phaser.Scene{
             console.log("hello y")
         }
 
-        setTimeout(() => {
-            this.cancheckx = true
-        }, 300);
+        if (this.cancheckx == false) {
+            setTimeout(() => {
+                this.cancheckx = true
+            }, 500);
+        } else if (this.canchecky == false) {
+            setTimeout(() => {
+                this.canchecky = true
+            }, 500);
+        }
 
-        setTimeout(() => {
-            this.canchecky = true
-        }, 300);
+
 
 
 
