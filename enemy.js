@@ -16,7 +16,8 @@ export default class enemy  {
         const yrand = Math.floor((Math.random() - Math.random()) * 1000)
 
 
-        const enemyguy = this.group.create(xrand, yrand, this.key).setScale(4)
+        const enemyguy = this.group.create(500, 500, this.key).setScale(0.5)
+        enemyguy.setCollideWorldBounds(true)
 
         return enemyguy
     }
