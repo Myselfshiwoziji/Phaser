@@ -22,15 +22,15 @@ export default class MainScene extends Phaser.Scene{
         this.velox = velo
         this.veloy = velo
 
-        for (let i = 0; i < 100000; i++) {
-            setTimeout(() => {
+        // for (let i = 0; i < 100000; i++) {
+        //     setTimeout(() => {
 
-                // console.log(this.player.body.x)
-                // console.log(this.player.body.y)
+        //         // console.log(this.player.body.x)
+        //         // console.log(this.player.body.y)
 
-            }, 8*i);
+        //     }, 8*i);
     
-        }
+        // }
     
 
         this.cancheckx = true
@@ -46,7 +46,7 @@ export default class MainScene extends Phaser.Scene{
             this.cancheckx = false
             console.log("hello x")
         }
-        else if (this.player.body.y == 0 && this.canchecky == true ||  this.player.body.y == 803 && this.canchecky == true) {
+        else if (this.player.body.y == 0 && this.canchecky == true ||  this.player.body.y == 754 && this.canchecky == true) {
             this.veloy = -this.veloy
             this.canchecky = false
             console.log("hello y")
