@@ -17,28 +17,30 @@ export default class MainScene extends Phaser.Scene{
 
         this.enemyspawn.spawn()
 
-     
+        this.physics.add.collider(this.enemyspawn.group, this.player);
 
-        this.keys = this.input.keyboard.addKeys("W,A,S,D")
+        this.physics.world.setBounds(0,0,1680,900)
 
-        this.physics.add.collider(this.player, this.enemyspawn.group)
+        this.enemyspawn.group.getChildren().forEach(child => {
+            child.setVelocity(0,0)
+            child.setCollideWorldBounds(true)
+            child.setBounce(1)
+        })
+
 
         this.player.setCollideWorldBounds(true)
+        this.keys = this.input.keyboard.addKeys("W,A,S,D")
 
-        this.pcancheckx = true
-        this.pcanchecky = true
 
-        this.velox = 300
-        this.veloy = 300
 
 
     }
     update(){
 
 
-        const rawplayerspeed = 500
+        const rawplayerspeed = 400
 
-        if (this.player.body.velocity.x != 0 && this.player.body.velocity.x != 0) {
+        if (this.player.body.velocity.x != 0 && this.player.body.velocity.y != 0) {
             this.playerspeed = rawplayerspeed/Math.sqrt(2)
         }
 
@@ -67,35 +69,34 @@ export default class MainScene extends Phaser.Scene{
 
         
 
-        this.enemyspawn.group.getChildren().forEach(child => {
+        // this.enemyspawn.group.getChildren().forEach(child => {
+        //     console.log(child.x)
 
+        //     if (child.body.x == 0 && this.pcancheckx == true || child.body.x == 1696.5 && this.pcancheckx == true) {
+        //         this.velox = -this.velox
+        //         this.pcancheckx = false
 
+        //     }
+        //     else if (child.body.y == 0 && this.pcanchecky == true || child.body.y == 853.25 && this.pcanchecky == true) {
+        //         this.veloy = -this.veloy
+        //         this.pcanchecky = false
 
-            if (child.body.x == 0 && this.pcancheckx == true || child.body.x == 1233 && this.pcancheckx == true) {
-                this.velox = -this.velox
-                this.pcancheckx = false
-                console.log("hello x")
-            }
-            else if (child.body.y == 0 && this.pcanchecky == true || child.body.y == 683.5 && this.pcanchecky == true) {
-                this.veloy = -this.veloy
-                this.pcanchecky = false
-                console.log("hello y")
-            }
+        //     }
 
-            child.setVelocity(this.velox,this.veloy)
+        //     child.setVelocity(this.velox,this.veloy)
 
-            if (this.pcancheckx == false) {
-                setTimeout(() => {
-                    console.log(this.pcancheckx)
-                    this.pcancheckx = true
-                }, 100);
-            } else if (this.pcanchecky == false) {
-                setTimeout(() => {
-                    this.pcanchecky = true
-                }, 100);
-            }
+        //     if (this.pcancheckx == false) {
+        //         setTimeout(() => {
+
+        //             this.pcancheckx = true
+        //         }, 100);
+        //     } else if (this.pcanchecky == false) {
+        //         setTimeout(() => {
+        //             this.pcanchecky = true
+        //         }, 100);
+        //     }
             
-        });
+        // });
 
 
     }

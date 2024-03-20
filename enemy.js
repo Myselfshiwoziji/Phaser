@@ -12,12 +12,11 @@ export default class enemy  {
 
     spawn()
     {
-        const xrand = Math.floor((Math.random() - Math.random()) * 1000)
-        const yrand = Math.floor((Math.random() - Math.random()) * 1000)
+        const xrand = Math.floor((Math.random()) * 1233)
+        const yrand = Math.floor((Math.random()) * 683.5)
 
 
-        const enemyguy = this.group.create(500, 500, this.key).setScale(0.5)
-        enemyguy.setCollideWorldBounds(true)
+        const enemyguy = this.group.create(xrand, yrand, this.key).setScale(0.5)
 
         return enemyguy
     }
