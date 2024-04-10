@@ -16,7 +16,13 @@ const config = {
 
     scene:[
         MainScene
-    ]
+    ],
+
+    fps: {
+        target: 60,
+        forceSetTimeOut: true,
+    }
+
 }
 
 new Phaser.Game(config);
