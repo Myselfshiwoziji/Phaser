@@ -10,13 +10,16 @@ export default class enemy  {
         return this._group
     }
 
-    spawn()
+    spawn(health)
     {
         const xrand = Math.floor((Math.random()) * 1233)
         const yrand = Math.floor((Math.random()) * 683.5)
 
 
         const enemyguy = this.group.create(xrand, yrand, this.key).setScale(0.15)
+
+        enemyguy.health = health
+
 
         return enemyguy
     }
